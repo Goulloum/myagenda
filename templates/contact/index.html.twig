@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %} {% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/contact/contact.css') }}" /> {%
+endblock %} {% block body %}
+<div class="add-btn">
+  <a href="{{ path('app_contact_add') }}">Ajouter</a>
+</div>
+
+{% for message in app.flashes('success') %}
+<div class="flash-notice">
+  {{ message }}
+</div>
+{% endfor %}
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Email</th>
+      <th>Téléphone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contact in contacts %}
+    <tr>
+      <td>
+        <a href="{{ path('app_contact_show', { id: contact.id }) }}">{{
+          contact.nom
+        }}</a>
+      </td>
+      <td>{{ contact.prenom }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.telephone }}</td>
+      <td>
+        <a
+          onclick="return confirm('Voulez-vous vraiment supprimer ce contact ?')"
+          href="{{ path('app_contact_delete', { id: contact.id }) }}"
+          >Supprimer</a
+        >
+        <a href="{{ path('app_contact_edit', { id: contact.id }) }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

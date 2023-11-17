@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/contact/contact.css') }}" /> {%
+endblock %} {% block body %}
+<div class="contact-details-container">
+  <div class="informations">
+    <div class="nom">{{ contact.nom }}</div>
+    <div class="prenom">{{ contact.prenom }}</div>
+    <div class="email">{{ contact.email }}</div>
+    <div class="telephone">{{ contact.telephone }}</div>
+  </div>
+</div>
+{% endblock %}
