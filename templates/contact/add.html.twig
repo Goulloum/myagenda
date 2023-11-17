@@ -1,6 +1,5 @@
-{% extends 'base.html.twig' %} {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('css/contact/contact.css') }}" />
-{% endblock %} {% block body %}
+{% extends 'base.html.twig' %} {% block stylesheets %} {% endblock %} {% block
+body %}
 {{ form_errors(contactForm) }}
 
 {{ form_start(contactForm) }}
@@ -9,7 +8,7 @@
 {{ form_row(contactForm.email) }}
 {{ form_row(contactForm.telephone) }}
 
-<button type="submit" class="btn">Créer</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block">Créer</button>
 {{ form_end(contactForm) }}
 
 {% endblock %}
